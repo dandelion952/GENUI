@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GENU-INE — Art, Culture and Experience</title>
+
+<style>
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #12001f;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 85px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(10,0,20,.8),
+        transparent
+    );
+
+    backdrop-filter: blur(3px);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: .15em;
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+}
+
+.nav a {
+    font-size: 11px;
+    letter-spacing: .15em;
+    opacity: .75;
+
+    transition: .3s;
+}
+
+.nav a:hover {
+    opacity: 1;
+}
+
+.menu-button {
+    display: none;
+
+    background: none;
+    border: 1px solid rgba(255,255,255,.4);
+
+    color: #fff;
+
+    padding: 10px 16px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.hero-photo {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(10,0,20,.25),
+            rgba(10,0,20,.4) 50%,
+            rgba(18,0,31,.95)
+        ),
+        url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.05);
+
+    animation: heroZoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+
+    from {
+        transform: scale(1.03);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+
+}
+
+
+/* Grid effect */
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.045) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    z-index: 1;
+}
+
+
+/* top label */
+
+.small-text {
+
+    position: absolute;
+
+    top: 120px;
+    left: 5vw;
+
+    font-size: 11px;
+
+    letter-spacing: .28em;
+
+    z-index: 3;
+}
+
+
+/* big title */
+
+.hero-title {
+
+    position: relative;
+
+    z-index: 3;
+
+    font-size: clamp(
+        70px,
+        15vw,
+        230px
+    );
+
+    font-weight: 700;
+
+    letter-spacing: -.06em;
+
+    line-height: .85;
+
+    text-align: center;
+
+    mix-blend-mode: screen;
+
+    text-shadow:
+        0 0 40px rgba(255,255,255,.18);
+}
+
+
+/* circle */
+
+.orb {
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    border-radius: 50%;
+
+    z-index: 2;
+
+    background:
+        radial-gradient(
+            circle at 40% 40%,
+            rgba(255,255,255,.25),
+            rgba(186,72,255,.13) 30%,
+            rgba(80,0,120,.04) 60%,
+            transparent 70%
+        );
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 90px rgba(198,78,255,.25);
+
+    animation: floating 7s ease-in-out infinite;
+}
+
+@keyframes floating {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+}
+
+
+.bottom-text {
+
+    position: absolute;
+
+    left: 5vw;
+    bottom: 70px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    letter-spacing: .08em;
+
+    z-index: 3;
+}
+
+
+.scroll {
+
+    position: absolute;
+
+    right: 5vw;
+    bottom: 70px;
+
+    font-size: 10px;
+
+    letter-spacing: .25em;
+
+    z-index: 3;
+}
+
+.scroll span {
+    margin-left: 15px;
+}
+
+
+/* =========================================
+   GENERAL SECTION
+========================================= */
+
+section:not(.hero) {
+
+    min-height: 100vh;
+
+    padding:
+        110px
+        7vw;
+
+    position: relative;
+}
+
+
+.section-number {
+
+    font-size: 11px;
+
+    letter-spacing: .25em;
+
+    opacity: .55;
+
+    margin-bottom: 80px;
+}
+
+
+/* =========================================
+   COLLIDE
+========================================= */
+
+.collide {
+
+    background:
+        radial-gradient(
+            circle at 70% 50%,
+            #3b0a55,
+            #12001f 55%
+        );
+}
+
+.collide-content {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 60px;
+
+    min-height: 50vh;
+}
+
+.collide h2 {
+
+    font-size:
+        clamp(
+            70px,
+            12vw,
+            180px
+        );
+
+    line-height: .9;
+}
+
+.section-symbol {
+
+    display: block;
+
+    font-size: 40px;
+
+    margin-bottom: 25px;
+}
+
+.collide-text {
+
+    max-width: 350px;
+
+    font-size: 21px;
+
+    line-height: 1.6;
+
+    opacity: .7;
+}
+
+
+/* =========================================
+   ASSEMBLE / PHOTO
+========================================= */
+
+.assemble {
+
+    background: #f4f1ec;
+
+    color: #111;
+}
+
+.assemble-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 8vw;
+
+    align-items: center;
+}
+
+.assemble-photo {
+
+    height: 70vh;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.assemble-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 1s ease;
+}
+
+.assemble-photo:hover img {
+    transform: scale(1.05);
+}
+
+.assemble h2 {
+
+    font-size:
+        clamp(
+            65px,
+            10vw,
+            160px
+        );
+
+    line-height: .85;
+
+    letter-spacing: -.06em;
+}
+
+.assemble-description {
+
+    margin-top: 35px;
+
+    max-width: 420px;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   ARTISTS
+========================================= */
+
+.artists {
+
+    background: #12001f;
+}
+
+.artists-intro {
+
+    margin-bottom: 50px;
+
+    font-size: 11px;
+
+    letter-spacing: .25em;
+
+    opacity: .55;
+}
+
+
+.artist {
+
+    display: grid;
+
+    grid-template-columns:
+        100px 1fr 50px;
+
+    align-items: center;
+
+    padding:
+        32px
+        0;
+
+    border-top:
+        1px solid rgba(255,255,255,.15);
+
+    transition:
+        padding .4s ease,
+        background .4s ease;
+}
+
+.artist:last-child {
+
+    border-bottom:
+        1px solid rgba(255,255,255,.15);
+}
+
+.artist:hover {
+
+    padding-left: 25px;
+
+    background:
+        rgba(255,255,255,.03);
+}
+
+.artist-number {
+
+    opacity: .5;
+
+    font-size: 12px;
+}
+
+.artist h3 {
+
+    font-size:
+        clamp(
+            25px,
+            4vw,
+            55px
+        );
+
+    font-weight: 400;
+}
+
+.artist p {
+
+    margin-top: 8px;
+
+    opacity: .5;
+}
+
+.artist-arrow {
+
+    font-size: 25px;
+}
+
+
+/* =========================================
+   PROJECTS
+========================================= */
+
+.projects {
+
+    background: #08000d;
+}
+
+.projects-intro h2 {
+
+    font-size:
+        clamp(
+            65px,
+            11vw,
+            160px
+        );
+
+    line-height: .85;
+
+    letter-spacing: -.05em;
+
+    margin-bottom: 100px;
+}
+
+
+/* project card */
+
+.project {
+
+    display: block;
+
+    margin-bottom: 120px;
+}
+
+.project-visual {
+
+    width: 100%;
+
+    height: min(
+        78vh,
+        850px
+    );
+
+    overflow: hidden;
+
+    position: relative;
+
+    background: #222;
+}
+
+.project-visual img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 1.2s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.project:hover
+.project-visual img {
+
+    transform: scale(1.05);
+}
+
+
+.project-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 50%,
+            rgba(0,0,0,.65)
+        );
+}
+
+
+.project-label {
+
+    position: absolute;
+
+    left: 35px;
+    bottom: 30px;
+
+    font-size: 11px;
+
+    letter-spacing: .25em;
+}
+
+
+.project-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 25px;
+}
+
+.project-info h3 {
+
+    font-size:
+        clamp(
+            26px,
+            4vw,
+            52px
+        );
+
+    font-weight: 400;
+}
+
+.project-info p {
+
+    font-size: 12px;
+
+    letter-spacing: .15em;
+
+    opacity: .5;
+}
+
+
+/* different cropping */
+
+.project-01 img {
+
+    object-position:
+        center center;
+}
+
+.project-02 img {
+
+    object-position:
+        center 34%;
+}
+
+.project-03 img {
+
+    object-position:
+        center center;
+}
+
+
+/* =========================================
+   BRIEF
+========================================= */
+
+.brief {
+
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            #55246c,
+            #160020 55%
+        );
+}
+
+.brief-content {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap: 100px;
+
+    align-items: end;
+}
+
+.brief-title span {
+
+    display: block;
+
+    font-size: 11px;
+
+    letter-spacing: .25em;
+
+    margin-bottom: 25px;
+
+    opacity: .6;
+}
+
+.brief-title h2 {
+
+    font-size:
+        clamp(
+            55px,
+            9vw,
+            145px
+        );
+
+    line-height: .9;
+
+    letter-spacing: -.05em;
+}
+
+.brief-text {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    opacity: .65;
+}
+
+
+/* =========================================
+   TOKYO
+========================================= */
+
+.tokyo {
+
+    min-height: 90vh !important;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #f5f2ed;
+
+    color: #111;
+
+    overflow: hidden;
+}
+
+.tokyo-label {
+
+    font-size: 11px;
+
+    letter-spacing: .25em;
+}
+
+.tokyo h2 {
+
+    font-size:
+        clamp(
+            100px,
+            24vw,
+            360px
+        );
+
+    line-height: .8;
+
+    letter-spacing: -.08em;
+
+    margin:
+        30px
+        0;
+}
+
+.tokyo-description {
+
+    max-width: 400px;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    min-height: 220px;
+
+    padding:
+        60px
+        7vw;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    align-items: end;
+
+    background: #08000d;
+}
+
+.footer-logo {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    letter-spacing: .15em;
+}
+
+.footer-center {
+
+    text-align: center;
+
+    font-size: 25px;
+}
+
+.footer-year {
+
+    text-align: right;
+
+    font-size: 11px;
+
+    opacity: .5;
+}
+
+
+/* =========================================
+   REVEAL ANIMATION
+========================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width: 800px) {
+
+    header {
+        height: 70px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    section:not(.hero) {
+
+        padding:
+            90px
+            6vw;
+    }
+
+    .hero-title {
+
+        font-size: 21vw;
+    }
+
+    .orb {
+
+        width: 220px;
+        height: 220px;
+    }
+
+    .collide-content {
+
+        display: block;
+    }
+
+    .collide-text {
+
+        margin-top: 50px;
+    }
+
+    .assemble-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .assemble-photo {
+
+        height: 65vh;
+    }
+
+    .artist {
+
+        grid-template-columns:
+            50px 1fr 30px;
+    }
+
+    .project-visual {
+
+        height: 65vh;
+    }
+
+    .brief-content {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    footer {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 35px;
+    }
+
+    .footer-center,
+    .footer-year {
+
+        text-align: left;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="logo">
+        GENU-INE
+    </div>
+
+    <nav class="nav">
+
+        <a href="#home">
+            HOME
+        </a>
+
+        <a href="#artists">
+            ARTISTS
+        </a>
+
+        <a href="#projects">
+            PROJECTS
+        </a>
+
+        <a href="#brief">
+            THE BRIEF
+        </a>
+
+        <a href="#tokyo">
+            TOKYO
+        </a>
+
+    </nav>
+
+    <button class="menu-button">
+        MENU
+    </button>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section
+    id="home"
+    class="hero"
+>
+
+    <div
+        class="hero-photo"
+    ></div>
+
+    <div
+        class="hero-grid"
+    ></div>
+
+
+    <p class="small-text">
+        ART / CULTURE / EXPERIENCE
+    </p>
+
+
+    <div class="orb"></div>
+
+
+    <div class="hero-title">
+        GENU-INE
+    </div>
+
+
+    <p class="bottom-text">
+        A creative space for
+        <br>
+        art and imagination.
+    </p>
+
+
+    <p class="scroll">
+        SCROLL
+        <span>↓</span>
+    </p>
+
+</section>
+
+
+
+<!-- =========================================
+     01 COLLIDE
+========================================= -->
+
+<section
+    id="collide"
+    class="collide"
+>
+
+    <p class="section-number">
+        01 — COLLIDE
+    </p>
+
+
+    <div
+        class="collide-content reveal"
+    >
+
+        <div>
+
+            <span
+                class="section-symbol"
+            >
+                ✦
+            </span>
+
+            <h2>
+                COLLIDE
+            </h2>
+
+        </div>
+
+
+        <p
+            class="collide-text"
+        >
+            Where art,
+            culture and imagination
+            come together.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     02 ASSEMBLE
+========================================= -->
+
+<section
+    id="assemble"
+    class="assemble"
+>
+
+    <p class="section-number">
+        02 — ASSEMBLE
+    </p>
+
+
+    <div
+        class="assemble-grid reveal"
+    >
+
+        <div class="assemble-photo">
+
+            <img
+                src="images/project-01.jpg"
+                alt="Flowers"
+            >
+
+        </div>
+
+
+        <div>
+
+            <h2>
+                ASSEMBLE
+            </h2>
+
+            <p
+                class="assemble-description"
+            >
+                We bring together
+                art, nature, people
+                and ideas to create
+                new visual experiences.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     03 ARTISTS
+========================================= -->
+
+<section
+    id="artists"
+    class="artists"
+>
+
+    <p class="section-number">
+        03 — ARTISTS
+    </p>
+
+
+    <div class="artists-intro">
+        PEOPLE / IDEAS / VISIONS
+    </div>
+
+
+    <a
+        href="#"
+        class="artist reveal"
+    >
+
+        <span class="artist-number">
+            01
+        </span>
+
+        <div>
+
+            <h3>
+                ARTIST ONE
+            </h3>
+
+            <p>
+                Visual Artist / Tokyo
+            </p>
+
+        </div>
+
+        <span class="artist-arrow">
+            ↗
+        </span>
+
+    </a>
+
+
+    <a
+        href="#"
+        class="artist reveal"
+    >
+
+        <span class="artist-number">
+            02
+        </span>
+
+        <div>
+
+            <h3>
+                ARTIST TWO
+            </h3>
+
+            <p>
+                Art / Design / Culture
+            </p>
+
+        </div>
+
+        <span class="artist-arrow">
+            ↗
+        </span>
+
+    </a>
+
+
+    <a
+        href="#"
+        class="artist reveal"
+    >
+
+        <span class="artist-number">
+            03
+        </span>
+
+        <div>
+
+            <h3>
+                ARTIST THREE
+            </h3>
+
+            <p>
+                Contemporary Artist
+            </p>
+
+        </div>
+
+        <span class="artist-arrow">
+            ↗
+        </span>
+
+    </a>
+
+</section>
+
+
+
+<!-- =========================================
+     04 PROJECTS
+========================================= -->
+
+<section
+    id="projects"
+    class="projects"
+>
+
+    <p class="section-number">
+        04 — LATEST PROJECTS
+    </p>
+
+
+    <div class="projects-intro reveal">
+
+        <h2>
+            SELECTED
+            <br>
+            WORKS
+        </h2>
+
+    </div>
+
+
+
+    <!-- PROJECT 01 -->
+
+    <a
+        href="#"
+        class="project reveal"
+    >
+
+        <div
+            class="
+                project-visual
+                project-01
+            "
+        >
+
+            <img
+                src="images/project-01.jpg"
+                alt="White blossom"
+            >
+
+            <div
+                class="project-overlay"
+            ></div>
+
+            <span
+                class="project-label"
+            >
+                PROJECT 01
+            </span>
+
+        </div>
+
+
+        <div class="project-info">
+
+            <h3>
+                BLOOM
+            </h3>
+
+            <p>
+                TOKYO — 2026
+            </p>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- PROJECT 02 -->
+
+    <a
+        href="#"
+        class="project reveal"
+    >
+
+        <div
+            class="
+                project-visual
+                project-02
+            "
+        >
+
+            <img
+                src="images/project-02.jpg"
+                alt="Classical portrait"
+            >
+
+            <div
+                class="project-overlay"
+            ></div>
+
+            <span
+                class="project-label"
+            >
+                PROJECT 02
+            </span>
+
+        </div>
+
+
+        <div class="project-info">
+
+            <h3>
+                TIMELESS
+            </h3>
+
+            <p>
+                ART — 2026
+            </p>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- PROJECT 03 -->
+
+    <a
+        href="#"
+        class="project reveal"
+    >
+
+        <div
+            class="
+                project-visual
+                project-03
+            "
+        >
+
+            <img
+                src="images/project-03.jpg"
+                alt="White flower"
+            >
+
+            <div
+                class="project-overlay"
+            ></div>
+
+            <span
+                class="project-label"
+            >
+                PROJECT 03
+            </span>
+
+        </div>
+
+
+        <div class="project-info">
+
+            <h3>
+                DETAIL
+            </h3>
+
+            <p>
+                NATURE — 2026
+            </p>
+
+        </div>
+
+    </a>
+
+</section>
+
+
+
+<!-- =========================================
+     05 THE BRIEF
+========================================= -->
+
+<section
+    id="brief"
+    class="brief"
+>
+
+    <p class="section-number">
+        05 — THE BRIEF
+    </p>
+
+
+    <div
+        class="brief-content reveal"
+    >
+
+        <div class="brief-title">
+
+            <span>
+                WE CREATE
+            </span>
+
+            <h2>
+                EXPERIENCES
+                <br>
+                THAT MATTER.
+            </h2>
+
+        </div>
+
+
+        <p class="brief-text">
+
+            We connect art,
+            culture and contemporary
+            visual experiences
+            through creative ideas.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     06 TOKYO
+========================================= -->
+
+<section
+    id="tokyo"
+    class="tokyo"
+>
+
+    <p class="section-number">
+        06 — TOKYO
+    </p>
+
+
+    <div class="reveal">
+
+        <p class="tokyo-label">
+            BASED IN
+        </p>
+
+        <h2>
+            TOKYO
+        </h2>
+
+        <p class="tokyo-description">
+
+            A city where
+            art, culture and technology
+            collide.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        GENU-INE
+    </div>
+
+    <div class="footer-center">
+        鉴影
+    </div>
+
+    <div class="footer-year">
+        © 2026
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const reveals =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+reveals.forEach(
+    element => {
+
+        observer.observe(
+            element
+        );
+
+    }
+);
+
+
+
+/* =========================================
+   HERO PARALLAX
+========================================= */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const hero =
+            document.querySelector(
+                ".hero-photo"
+            );
+
+        const y =
+            window.scrollY;
+
+        if (
+            y <
+            window.innerHeight
+        ) {
+
+            hero.style
+                .backgroundPosition =
+                `center calc(50% + ${y * 0.15}px)`;
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
